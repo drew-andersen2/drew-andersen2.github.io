@@ -87,3 +87,92 @@ iframe {
   border-radius: 0.5rem;
   margin-top: 0.5rem;
 }
+
+/* Crimson underline animation */
+a {
+  position: relative;
+  color: #b73254;
+  transition: color 0.25s ease;
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background: #d94a6c;
+  transition: width 0.25s ease;
+}
+
+a:hover {
+  color: #d94a6c;
+  text-shadow: 0 0 6px #d94a6c;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+/* === GLOBAL COLORS === */
+body {
+  background: #0b0b0d;
+  color: #d6d6d6;
+}
+
+header {
+  background: linear-gradient(135deg, #15151a, #0b0b0d);
+}
+
+h1, h2 {
+  color: #8b1e3f;
+}
+
+/* === CARDS === */
+.card {
+  background: #15151a;
+  border: 1px solid #2a2a33;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 12px #8b1e3f55;
+}
+
+.card h2 {
+  color: #8b1e3f;
+}
+
+/* === MONSTER SECTIONS === */
+.monster {
+  background: #15151a;
+  border: 1px solid #2a2a33;
+}
+
+.monster h2 {
+  color: #8b1e3f;
+}
+
+.monster p {
+  color: #9a9a9a;
+}
+
+/* === LINKS === */
+a {
+  color: #b73254;
+}
+
+a:hover {
+  color: #d94a6c;
+}
+
+/* === BACK LINK === */
+.back-link {
+  color: #b73254;
+}
+
+/* === IFRAME (YouTube) === */
+iframe {
+  border: 1px solid #2a2a33;
+}
