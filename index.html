@@ -18,7 +18,7 @@
     <div class="grid">
 
       <a class="card" href="world-bosses.html">
-        <img src="images/azmohead.jpg" alt="World Bosses">
+        <img src="images/azmohead.png" alt="World Bosses">
         <h2>World Bosses</h2>
       </a>
 
@@ -48,6 +48,71 @@
     </section>
 
   </div>
+ <!-- Goblin lives here -->
+  <img id="goblin" src="images/treasuregoblin.png" alt="Treasure Goblin">
+  <img id="rainbowGoblin" src="images/rainbowgoblin.png" alt="Rainbow Goblin">
+  <!-- Goblin script -->
+  <script>
+  const goblin = document.getElementById("goblin");
+  const rainbowGoblin = document.getElementById("rainbowGoblin");
+  let clickCount = 0;
+  let rainbowSpawned = false;
+
+  function spawnSparkles(target) {
+    const sparkleInterval = setInterval(() => {
+      const sparkle = document.createElement("div");
+      sparkle.classList.add("sparkle");
+
+      const rect = target.getBoundingClientRect();
+      const x = rect.left + Math.random() * rect.width;
+      const y = rect.top + Math.random() * rect.height;
+
+      sparkle.style.left = x + "px";
+      sparkle.style.top = y + "px";
+
+      document.body.appendChild(sparkle);
+
+      setTimeout(() => sparkle.remove(), 800);
+    }, 80);
+
+    setTimeout(() => clearInterval(sparkleInterval), 1000);
+  }
+
+  goblin.addEventListener("click", () => {
+    if (rainbowSpawned) return;
+
+    clickCount++;
+
+    goblin.classList.add("hidden");
+
+    setTimeout(() => {
+      const maxX = window.innerWidth - goblin.offsetWidth - 20;
+      const randomX = Math.floor(Math.random() * maxX);
+      goblin.style.left = randomX + "px";
+      goblin.style.right = "auto";
+
+      const centerX = window.innerWidth / 2;
+      goblin.style.transform = randomX < centerX ? "scaleX(-1)" : "scaleX(1)";
+      goblin.classList.remove("hidden");
+    }, 600);
+
+    if (clickCount === 3) {
+      rainbowSpawned = true;
+      goblin.style.display = "none";
+
+      const centerX = window.innerWidth / 2 - rainbowGoblin.offsetWidth / 2;
+      rainbowGoblin.style.left = centerX + "px";
+      rainbowGoblin.style.right = "auto";
+      rainbowGoblin.style.transform = "scaleX(1)";
+      rainbowGoblin.style.opacity = 1;
+
+      // ✨ Sparkle effect
+      spawnSparkles(rainbowGoblin);
+    }
+  });
+</script>
+
+
 
 </body>
 </html>
