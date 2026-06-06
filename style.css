@@ -232,9 +232,11 @@ header ul li::before {
   }
 }
 
-@media (max-width: 768px) {
+@media only screen and (max-width: 900px) {
   #goblin,
   #rainbowGoblin {
     display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
   }
 }
