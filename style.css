@@ -185,3 +185,49 @@ header ul li::before {
   background: none;
   filter: none;
 }
+
+#goblin {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 120px;
+  cursor: pointer;
+  z-index: 9999;
+  transition: opacity 0.1s ease;
+}
+
+#goblin.hidden {
+  opacity: 0;
+}
+
+#rainbowGoblin {
+  position: fixed;
+  bottom: 20px;
+  width: 120px;
+  cursor: pointer;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, white, rgba(255,255,255,0));
+  border-radius: 50%;
+  pointer-events: none;
+  animation: sparkleFade 0.8s ease-out forwards;
+  z-index: 10000;
+}
+
+@keyframes sparkleFade {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
