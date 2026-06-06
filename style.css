@@ -1,14 +1,15 @@
 body {
   margin: 0;
   font-family: system-ui, sans-serif;
-  background: #0f172a;
-  color: #e2e8f0;
+  background: #0b0b0d;
+  color: #d6d6d6;
 }
 
+/* HEADER */
 header {
   text-align: center;
   padding: 3rem 1rem;
-  background: linear-gradient(135deg, #1e3a8a, #0f172a);
+  background: linear-gradient(135deg, #15151a, #0b0b0d);
 }
 
 h1 {
@@ -16,6 +17,11 @@ h1 {
   font-size: 2.5rem;
 }
 
+h1, h2 {
+  color: #8b1e3f;
+}
+
+/* LAYOUT */
 .container {
   max-width: 900px;
   margin: 2rem auto;
@@ -28,47 +34,53 @@ h1 {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
+/* CARDS */
 .card {
-  background: #1e293b;
+  background: #15151a;
+  border: 1.1px solid #2a2a33;
   border-radius: 0.75rem;
   overflow: hidden;
-  transition: transform 0.2s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  text-decoration: none;
+  color: inherit;
 }
 
 .card:hover {
-  transform: scale(1.03);
+  transform: translateY(-6px);
+  box-shadow: 0 0 4px #8b1e3f;
 }
 
 .card img {
   width: 100%;
   height: 160px;
   object-fit: cover;
+  pointer-events: none;
 }
 
 .card h2 {
   margin: 0;
   padding: 1rem;
   font-size: 1.25rem;
-  color: #93c5fd;
+  pointer-events: none;
 }
 
-section {
-  margin-bottom: 2rem;
-}
-
+/* BACK LINK */
 .back-link {
   display: inline-block;
   margin-bottom: 1rem;
-  color: #60a5fa;
+  color: #b73254;
   text-decoration: none;
 }
 
 .back-link:hover {
-  text-decoration: underline;
+  color: #d94a6c;
+  text-shadow: 0 0 2px #d94a6c;
 }
 
+/* MONSTER SECTIONS */
 .monster {
-  background: #1e293b;
+  background: #15151a;
+  border: 1px solid #2a2a33;
   padding: 1rem;
   border-radius: 0.75rem;
   margin-bottom: 1.5rem;
@@ -80,15 +92,30 @@ section {
   margin-top: 0.5rem;
 }
 
+.monster h2 {
+  color: #8b1e3f;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.monster h2:hover {
+  color: #d94a6c;
+  text-shadow: 0 0 2px #d94a6c;
+}
+
+.monster p {
+  color: #9a9a9a;
+}
+
+/* IFRAME */
 iframe {
   width: 100%;
   height: 315px;
-  border: none;
+  border: 1px solid #2a2a33;
   border-radius: 0.5rem;
   margin-top: 0.5rem;
 }
 
-/* Crimson underline animation */
+/* CRIMSON UNDERLINE ANIMATION (links) */
 a {
   position: relative;
   color: #b73254;
@@ -108,71 +135,53 @@ a::after {
 
 a:hover {
   color: #d94a6c;
-  text-shadow: 0 0 6px #d94a6c;
+  text-shadow: 0 0 2px #d94a6c;
 }
 
 a:hover::after {
   width: 100%;
 }
 
-/* === GLOBAL COLORS === */
-body {
-  background: #0b0b0d;
+/* 🔥 PENTAGRAM BULLETS — glow ONLY on the icon, NOT the text */
+ul {
+  list-style: none;
+  padding-left: 1.75rem;
+}
+
+ul li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: 0.5rem;
   color: #d6d6d6;
+  text-shadow: none;
 }
 
-header {
-  background: linear-gradient(135deg, #15151a, #0b0b0d);
+ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  background: url("images/pentagram.png") no-repeat center center;
+  background-size: 16px 16px;
+  filter: drop-shadow(0 0 4px #d94a6c);
 }
 
-h1, h2 {
-  color: #8b1e3f;
+/* 🩸 HEADER LIST — NO PENTAGRAMS, CENTERED TEXT */
+header ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
 }
 
-/* === CARDS === */
-.card {
-  background: #15151a;
-  border: 1px solid #2a2a33;
+header ul li {
+  padding-left: 0;
+  margin-bottom: 0.5rem;
 }
 
-.card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 12px #8b1e3f55;
-}
-
-.card h2 {
-  color: #8b1e3f;
-}
-
-/* === MONSTER SECTIONS === */
-.monster {
-  background: #15151a;
-  border: 1px solid #2a2a33;
-}
-
-.monster h2 {
-  color: #8b1e3f;
-}
-
-.monster p {
-  color: #9a9a9a;
-}
-
-/* === LINKS === */
-a {
-  color: #b73254;
-}
-
-a:hover {
-  color: #d94a6c;
-}
-
-/* === BACK LINK === */
-.back-link {
-  color: #b73254;
-}
-
-/* === IFRAME (YouTube) === */
-iframe {
-  border: 1px solid #2a2a33;
+header ul li::before {
+  content: none;
+  background: none;
+  filter: none;
 }
