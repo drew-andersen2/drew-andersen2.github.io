@@ -231,3 +231,10 @@ header ul li::before {
     opacity: 0;
   }
 }
+
+@media (max-width: 768px) {
+  #goblin,
+  #rainbowGoblin {
+    display: none !important;
+  }
+}
